@@ -51,7 +51,7 @@ class OrderrController extends Controller
 
         foreach($items as $item){
             $item->update([
-                'order_id' => $order->id,
+                'orderr_id' => $order->id,
                 'cartt_id'=>null,
             ]);
         }
