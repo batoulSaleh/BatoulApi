@@ -2,13 +2,13 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Categoryy;
+use App\Models\categoryy;
 use Illuminate\Http\Request;
 
 class CategoryyController extends Controller
 {
     public function index(){ 
-        $categories = Categoryy::all();
+        $categories = categoryy::all();
         return view('admin.categoriess.index',compact('categories'));
     }
 
@@ -22,7 +22,7 @@ class CategoryyController extends Controller
         $request->validate([
             'name' => 'required|max:150'
         ]);
-        $cat = Categoryy::create([
+        $cat = categoryy::create([
             'name' => $request->name
         ]);
         return redirect()->route('admin.categoryy.index');
@@ -30,7 +30,7 @@ class CategoryyController extends Controller
 
     public function edit($id){
 
-        $category = Categoryy::findOrFail($id);
+        $category = categoryy::findOrFail($id);
 
         return view('admin.categoriess.update',compact('category'));
 
@@ -42,7 +42,7 @@ class CategoryyController extends Controller
             'name' => 'required|max:150'
         ]);
 
-        $cat =  Categoryy::findOrFail($request->id);
+        $cat =  categoryy::findOrFail($request->id);
 
         $cat->update([
 
@@ -54,7 +54,7 @@ class CategoryyController extends Controller
     }
 
     public function delete($id){
-        $cat = Categoryy::findOrFail($id);
+        $cat = categoryy::findOrFail($id);
 
         $cat->delete();
         return redirect()->route('admin.categoryy.index');

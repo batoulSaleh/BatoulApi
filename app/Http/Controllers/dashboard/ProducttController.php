@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Categoryy;
+use App\Models\categoryy;
 use Illuminate\Http\Request;
 use App\Models\Productt;
 
@@ -16,7 +16,7 @@ class ProducttController extends Controller
 
     public function create(){
 
-        $categories = Categoryy::all();
+        $categories = categoryy::all();
 
         return view('admin.productss.store',compact('categories'));
     }
@@ -49,7 +49,7 @@ class ProducttController extends Controller
     public function edit($id){
 
         $product = Productt::findOrFail($id);
-        $categories = Categoryy::all();
+        $categories = categoryy::all();
 
         return view('admin.productss.update',compact('product','categories'));
 

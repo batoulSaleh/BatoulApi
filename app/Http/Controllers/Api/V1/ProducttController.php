@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Productt;
-use App\Models\Categoryy;
+use App\Models\categoryy;
 
 use Illuminate\Http\Request;
 
@@ -41,7 +41,7 @@ class ProducttController extends Controller
     }
 
     public function CategoriesProduct($cat_id){
-        $category=Categoryy::find($cat_id);
+        $category=categoryy::find($cat_id);
         $product = Productt::where('categoryy_id',$cat_id)->get();
         if($category){
             $response = [
