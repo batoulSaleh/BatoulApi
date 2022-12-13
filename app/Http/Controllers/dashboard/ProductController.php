@@ -3,69 +3,55 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\categoryy;
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\Productt;
 
 class ProductController extends Controller
 {
-    // 
     public function index(){
-        $products = Product::all();
+        $products = Productt::all();
         return view('admin.products.index',compact('products'));
     }
 
     public function create(){
 
-        $categories = Category::all();
+        $categories = categoryy::all();
 
         return view('admin.products.store',compact('categories'));
     }
-
 
     public function store(Request $request){
 
 
         $request->validate([
-            'name_en' => 'required|max:150',
-            'name_ar'=> 'required|max:150',
-            'description_en'=> 'max:500',
-            'description_ar'=> 'max:500',
+            'name' => 'required|max:150',
+            'description'=> 'max:500',
             'price'=> 'required',
-            'have_discount'=> 'boolean',
-            'discounted_price'=> '',
-            'img' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'category_id'=> 'required|exists:categories,id',
+            'img' => 'required|image|max:2048',
+            'categoryy_id'=> 'required|exists:categoryys,id',
+            'stock'=>'required|numeric'
         ]);
-        $image_path = $request->file('img')->store('api/products','public');
-        $isfish = ($request->category_id == 1) ? true : false;
+
+        $image_path = $request->file('img')->store('api/productss','public');
 
 
-
-
-        $product = Product::create([
-            'name_en' => $request->name_en,
-            'name_ar'=> $request->name_ar,
-            'description_en'=> $request->description_en,
-            'description_ar'=> $request->description_ar,
+        $product = Productt::create([
+            'name' => $request->name,
+            'description'=> $request->description,
             'price'=> $request->price,
-            'have_discount'=> $request->have_discount,
-            'discounted_price'=> $request->discounted_price,
             'img' => asset('storage/'.$image_path),
-            'isfish' => $isfish,
-            'category_id'=> $request->category_id,
-
+            'stock'=> $request->stock,
+            'categoryy_id'=> $request->categoryy_id,
         ]);
-
-
 
         return redirect()->route('admin.product.index');
     }
 
     public function edit($id){
 
-        $product = Product::findOrFail($id);
-        $categories = Category::all();
+        $product = Productt::findOrFail($id);
+        $categories = categoryy::all();
 
         return view('admin.products.update',compact('product','categories'));
 
@@ -75,53 +61,42 @@ class ProductController extends Controller
 
         $request->validate([
 
-            'name_en' => 'required|max:150',
-            'name_ar'=> 'required|max:150',
-            'description_en'=> 'max:500',
-            'description_ar'=> 'max:500',
+            'name' => 'required|max:150',
+            'description'=> 'max:500',
             'price'=> 'required',
-            'have_discount'=> 'boolean',
-            'discounted_price'=> '',
-            'category_id'=> 'required|exists:categories,id',
-
+            'categoryy_id'=> 'required|exists:categoryys,id',
+            'stock'=>'required|numeric'
         ]);
 
-        $cat =  Product::findOrFail($request->id);
-        $isfish = ($request->category_id == 1) ? true : false;
+        $product =  Productt::findOrFail($request->id);
 
 
 
-        $cat->update([
-            'name_en' => $request->name_en,
-            'name_ar'=> $request->name_ar,
-            'description_en'=> $request->description_en,
-            'description_ar'=> $request->description_ar,
+        $product->update([
+            'name' => $request->name,
+            'description'=> $request->description,
             'price'=> $request->price,
-            'have_discount'=> $request->have_discount,
-            'discounted_price'=> $request->discounted_price,
-            'isfish' => $isfish,
-            'category_id'=> $request->category_id,
-
-
+            'stock'=> $request->stock,
+            'categoryy_id'=> $request->categoryy_id,
         ]);
 
         if($request->file('img')){
-            $image_path = $request->file('img')->store('api/products','public');
-            $cat->img = asset('storage/'.$image_path);
-            $cat->save();
+            $image_path = $request->file('img')->store('api/productss','public');
+            $product->img = asset('storage/'.$image_path);
+            $product->save();
         }
 
         return redirect()->route('admin.product.index');
 
-
     }
+
     public function delete($id){
 
 
         $product = Productt::findOrFail($id);
 
         $product->delete();
-        return redirect()->route('admin.productt.index');
+        return redirect()->route('admin.product.index');
 
     }
 }

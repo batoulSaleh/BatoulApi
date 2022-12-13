@@ -1,6 +1,6 @@
-@extends('admin.master.masterar')
+@extends('admin.master.master')
 @section('name')
-المنتجات
+products
 @endsection
 @section('content')
 
@@ -31,15 +31,8 @@
               <div class="col-sm-12">
                 <!-- text input -->
                 <div class="form-group">
-                  <label>الاسم العربي</label>
-                  <input type="text" class="form-control" value="{{ $product->name_ar }}" name="name_ar" placeholder="Enter ...">
-                </div>
-              </div>
-              <div class="col-sm-12">
-                <!-- text input -->
-                <div class="form-group">
-                  <label>الاسم الانجليزي</label>
-                  <input type="text" class="form-control" value="{{ $product->name_en }}" name="name_en" placeholder="Enter ...">
+                  <label>name </label>
+                  <input type="text" class="form-control" value="{{ $product->name }}" name="name" placeholder="Enter ...">
                 </div>
               </div>
 
@@ -48,59 +41,27 @@
               <div class="col-sm-12">
                 <!-- textarea -->
                 <div class="form-group">
-                  <label>الوصف العربي</label>
-                  <textarea class="form-control"  name="description_ar" rows="3" placeholder="Enter ...">{{ $product->description_ar }}</textarea>
+                  <label> description</label>
+                  <textarea class="form-control"  name="description" rows="3" placeholder="Enter ...">{{ $product->description }}</textarea>
                 </div>
               </div>
 
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                  <!-- textarea -->
-                  <div class="form-group">
-                    <label>الوصف الانجليزي</label>
-                    <textarea class="form-control"  name="description_en" rows="3" placeholder="Enter ...">{{ $product->description_en }}</textarea>
-                  </div>
-                </div>
-
-
-              </div>
 
               <div class="row">
                 <div class="col-sm-4">
                   <!-- textarea -->
                   <div class="form-group">
-                    <label>السعر</label>
+                    <label>price</label>
                     <input type="number" value="{{ $product->price }}" class="form-control" name="price" placeholder="Enter ...">
                   </div>
                 </div>
-                <div style="display: flex; align-items:end;" class="col-sm-4">
-
-                    <div class="form-group">
-                        <div  class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="show" value="1"
-                          {{ ($product->have_discount == 1) ? "checked" : '' }}
-                          name="have_discount">
-                          <label for="show" class="custom-control-label">تخفيض</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="hide" value="0" name="have_discount"
-                           {{ ($product->have_discount == 0) ? "checked" : '' }} >
-                          <label for="hide" class="custom-control-label">بدون تخفيض</label>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-                  <div style="display: block" id="box" class="col-sm-4">
-                    <!-- textarea -->
-                    <div class="form-group">
-                      <label> السعر المخفض</label>
-                      <input type="number" class="form-control" value="{{ $product->discounted_price }}"  name="discounted_price" placeholder="Enter ...">
-                    </div>
-                  </div>
-
+ 
+                <div class="form-group">
+                  <label>stock</label>
+                  <input type="number" value="{{ $product->stock }}" class="form-control" name="stock" placeholder="Enter ...">
+                </div>
+              </div>
 
               </div>
 
@@ -108,11 +69,11 @@
                 <div class="col-sm-6">
                     <!-- select -->
                     <div class="form-group">
-                    <label>اختار القسم</label>
-                    <select name="category_id" class="form-control">
+                    <label> category</label>
+                    <select name="categoryy_id" class="form-control">
                         @foreach ($categories as $category)
 
-                        <option  {{ ($category->id == $product->category_id) ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name_ar }}</option>
+                        <option  {{ ($category->id == $product->categoryy_id) ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
 
                         @endforeach
                     </select>
@@ -123,7 +84,7 @@
                 <div class="col-sm-12">
                   <!-- textarea -->
                   <div class="form-group">
-                    <label>الصورة</label>
+                    <label>image</label>
                     <input type="file" id="img" class="form-control" name="img" placeholder="Enter ...">
                   </div>
                 </div>
@@ -145,7 +106,7 @@
                   <!-- textarea -->
                   <div class="form-group">
 
-                    <input type="submit" class="btn btn-info" name="" value="تعديل منتج" placeholder="Enter ...">
+                    <input type="submit" class="btn btn-info" name="" value="edit " placeholder="Enter ...">
                   </div>
                 </div>
 

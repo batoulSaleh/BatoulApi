@@ -1,6 +1,6 @@
-@extends('admin.master.masterar')
+@extends('admin.master.master')
 @section('name')
-طرق التنظيف
+Orders
 @endsection
 @section('content')
 <div class="row">
@@ -9,8 +9,8 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title" style="float: right;">جميع طرق التنظيف</h3><br/>
-          <a href="{{ route('admin.cleaning.create') }}" style="float: right" class="btn btn-info">اضافة  طرق التنظيف</a>
+          <h3 class="card-title" style="float: right;">All Oredrs</h3><br/>
+
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -18,24 +18,23 @@
             <thead>
             <tr>
               <th>id</th>
-              <th>الاسم العربي </th>
-              <th>الاسم الانجليزي </th>
-              <th>القسم</th>
-              <th>تعديل-حذف</th>
+              <th>Customer name</th>
+              <th>Customer phone</th>
+              <th>details</th>
+              <th>history</th>
             </tr>
             </thead>
             <tbody>
-@foreach ($cleanings as $cleaning)
+@foreach ($orders as $key=>$order)
 <tr>
-    <td>{{ $cleaning->id }}</td>
-      <td>{{ $cleaning->name_ar }}</td>
-      <td>{{ $cleaning->name_en }}</td>
-      <td>{{ $cleaning->category->name_ar }}</td>
+      <td>{{ $key+=1 }}</td>
+      <td>{{ $order->customer_name }}</td>
+      <td>{{ $order->customer_phone  }}</td>
       <td>
-        <a href="{{ route('admin.cleaning.edit',$cleaning->id) }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
-        <br>
-        <a href="{{ route('admin.cleaning.delete',$cleaning->id) }}" id="delete" class="btn btn-danger sm"><i class="fas fa-trash-alt"></i></a>
+        <a href="{{ route('admin.order.details',$order->id)  }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
       </td>
+      <td>{{ $order->created_at->toDayDateTimeString() }}</td>
+      
     </tr>
 
 @endforeach
@@ -45,10 +44,10 @@
             <tfoot>
             <tr>
               <th>id</th>
-              <th>الاسم العربي </th>
-              <th>الاسم الانجليزي </th>
-              <th>الصورة</th>
-              <th>تعديل-حزف</th>
+              <th>Customer name</th>
+              <th>Customer phone</th>
+              <th>details</th>
+              <th>history</th>
             </tr>
             </tfoot>
           </table>
@@ -74,38 +73,7 @@
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-<script>
-    $(function(){
-    $(document).on('click','#delete',function(e){
-        e.preventDefault();
-        var link = $(this).attr("href");
 
-
-                  Swal.fire({
-                    title: 'هل انت متاكد من مسح هذا القسم ؟',
-                    text: "",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    cancelButtonText: 'الغاء',
-                    confirmButtonText: 'تنفيذ المسح'
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-                      window.location.href = link
-                      Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                      )
-                    }
-                  })
-
-
-    });
-
-  });
-</script>
 
 
 

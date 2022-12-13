@@ -1,6 +1,6 @@
-@extends('admin.master.masterar')
+@extends('admin.master.master')
 @section('name')
-الاقسام
+categories
 @endsection
 @section('content')
 
@@ -11,7 +11,7 @@
       <!-- general form elements disabled -->
       <div class="card card-info">
         <div class="card-header">
-          <h3 class="card-title" style="float: right;">اضافة قسم</h3>
+          <h3 class="card-title" style="float: right;"> add category</h3>
         </div>
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -30,56 +30,21 @@
               <div class="col-sm-12">
                 <!-- text input -->
                 <div class="form-group">
-                  <label>الاسم العربي</label>
-                  <input required type="text" class="form-control" name="name_ar" placeholder="Enter ...">
-                </div>
-              </div>
-              <div class="col-sm-12">
-                <!-- text input -->
-                <div class="form-group">
-                  <label>الاسم الانجليزي</label>
-                  <input required type="text" class="form-control" name="name_en" placeholder="Enter ...">
+                  <label> name</label>
+                  <input required type="text" class="form-control" name="name" placeholder="Enter ...">
                 </div>
               </div>
 
             </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <!-- textarea -->
-                <div class="form-group">
-                  <label>الوصف العربي</label>
-                  <textarea required class="form-control" name="des_ar" rows="3" placeholder="Enter ..."></textarea>
-                </div>
-              </div>
+        
 
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                  <!-- textarea -->
-                  <div class="form-group">
-                    <label>الوصف الانجليزي</label>
-                    <textarea required class="form-control" name="des_en" rows="3" placeholder="Enter ..."></textarea>
-                  </div>
-                </div>
-
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <!-- textarea -->
-                  <div class="form-group">
-                    <label>الصورة</label>
-                    <input required type="file" class="form-control" name="img" placeholder="Enter ...">
-                  </div>
-                </div>
-
-              </div>
 
               <div class="row">
                 <div class="col-sm-12">
                   <!-- textarea -->
                   <div class="form-group">
 
-                    <input type="submit" class="btn btn-info" name="" value="اضف القسم" placeholder="Enter ...">
+                    <input type="submit" class="btn btn-info" name="" value="add category " placeholder="Enter ...">
                   </div>
                 </div>
 

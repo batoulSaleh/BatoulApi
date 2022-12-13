@@ -1,6 +1,6 @@
-@extends('admin.master.masterar')
+@extends('admin.master.master')
 @section('name')
-الاقسام
+Categories
 @endsection
 @section('content')
 <div class="row">
@@ -9,8 +9,8 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title" style="float: right;">جميع الاقسام</h3><br/>
-          <a href="{{ route('admin.category.create') }}" style="float: left" class="btn btn-info">اضافة قسم</a>
+          <h3 class="card-title" style="float: right;">All Categories </h3><br/>
+          <a href="{{ route('admin.category.create') }}" style="float: left" class="btn btn-info"> add category</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -18,19 +18,15 @@
             <thead>
             <tr>
               <th>id</th>
-              <th>الاسم العربي </th>
-              <th>الاسم الانجليزي </th>
-              <th>الصورة</th>
-              <th>تعديل-حذف</th>
+              <th>name</th>
+              <th>Edit | Delete</th>
             </tr>
             </thead>
             <tbody>
 @foreach ($categories as $category)
 <tr>
     <td>{{ $category->id }}</td>
-      <td>{{ $category->name_ar }}</td>
-      <td>{{ $category->name_en }}</td>
-      <td><img width="50px" height="50px" src="{{ $category->img }}" alt=""></td>
+      <td>{{ $category->name }}</td>
       <td>
         <a href="{{ route('admin.category.edit',$category->id) }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
         <br>
@@ -45,10 +41,8 @@
             <tfoot>
             <tr>
               <th>id</th>
-              <th>الاسم العربي </th>
-              <th>الاسم الانجليزي </th>
-              <th>الصورة</th>
-              <th>تعديل-حذف</th>
+              <th> name</th>
+              <th>Edit | Delete</th>
             </tr>
             </tfoot>
           </table>
@@ -82,14 +76,14 @@
 
 
                   Swal.fire({
-                    title: 'هل انت متاكد من مسح هذا القسم ؟',
+                    title: ' Do you sure to delete ?',
                     text: "",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    cancelButtonText: 'الغاء',
-                    confirmButtonText: 'تنفيذ المسح'
+                    cancelButtonText: 'cancel',
+                    confirmButtonText: 'delete '
                   }).then((result) => {
                     if (result.isConfirmed) {
                       window.location.href = link

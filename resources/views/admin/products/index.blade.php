@@ -1,6 +1,6 @@
-@extends('admin.master.masterar')
+@extends('admin.master.master')
 @section('name')
-المنتجات
+products
 @endsection
 @section('content')
 <div class="row">
@@ -9,8 +9,10 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title" style="float: right;">جميع المنتجات</h3><br/>
-          <a href="{{ route('admin.product.create') }}" style="float: right" class="btn btn-info">اضافة منتج</a>
+                    
+          <h3 class="card-title" style="float: left;">All Products </h3><br/>
+          
+          <a href="{{ route('admin.product.create') }}" style="float: left" class="btn btn-info">Add Product </a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -18,22 +20,24 @@
             <thead>
             <tr>
               <th>id</th>
-              <th>الاسم العربي </th>
-              <th>الاسم الانجليزي </th>
+              <th> name </th>
+              <th>price  </th>
 
-              <th>القسم</th>
-              <th>الصورة</th>
-              <th>تعديل-حذف</th>
+              <th>category</th>
+              <th>image</th>
+              <th>stock</th>
+              <th>Edit |delete</th>
             </tr>
             </thead>
             <tbody>
 @foreach ($products as $product)
 <tr>
     <td>{{ $product->id }}</td>
-      <td>{{ $product->name_ar }}</td>
-      <td>{{ $product->name_en }}</td>
-      <td>{{ $product->category->name_ar }}</td>
+      <td>{{ $product->name }}</td>
+      <td>{{ $product->price }}</td>
+      <td>{{ $product->categoryy->name }}</td>
       <td><img width="50px" height="50px" src="{{ $product->img }}" alt=""></td>
+      <td>{{ $product->stock }}</td>
       <td>
         <a href="{{ route('admin.product.edit',$product->id) }}" class="btn btn-info sm"><i class=" fas fa-edit"></i></a>
         <br>
@@ -48,12 +52,13 @@
             <tfoot>
             <tr>
               <th>id</th>
-              <th>الاسم العربي </th>
-              <th>الاسم الانجليزي </th>
+              <th> name </th>
+              <th>price  </th>
 
-              <th>الصورة</th>
-              <th>القسم</th>
-              <th>تعديل-حزف</th>
+              <th>category</th>
+              <th>image</th>
+              <th>stock</th>
+              <th>Edit |delete</th>
             </tr>
             </tfoot>
           </table>
@@ -87,14 +92,14 @@
 
 
                   Swal.fire({
-                    title: 'هل انت متاكد من مسح هذا القسم ؟',
+                    title: ' Do you sure to delete ?',
                     text: "",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    cancelButtonText: 'الغاء',
-                    confirmButtonText: 'تنفيذ المسح'
+                    cancelButtonText: 'cancel',
+                    confirmButtonText: 'delete '
                   }).then((result) => {
                     if (result.isConfirmed) {
                       window.location.href = link

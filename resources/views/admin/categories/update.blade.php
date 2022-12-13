@@ -1,6 +1,6 @@
-@extends('admin.master.masterar')
+@extends('admin.master.master')
 @section('name')
-الاقسام
+categories
 @endsection
 @section('content')
 
@@ -11,7 +11,7 @@
       <!-- general form elements disabled -->
       <div class="card card-info">
         <div class="card-header">
-          <h3 class="card-title" style="float: right;">اضافة قسم</h3>
+          <h3 class="card-title" style="float: right;"> Edit category</h3>
         </div>
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -31,66 +31,24 @@
                 <input type="hidden"  value="{{ $category->id }}" name="id" id="">
                 <!-- text input -->
                 <div class="form-group">
-                  <label>الاسم العربي</label>
-                  <input type="text" class="form-control" value="{{ $category->name_ar }}" name="name_ar" placeholder="Enter ...">
+                  <label>name</label>
+                  <input type="text" class="form-control" value="{{ $category->name }}" name="name" placeholder="Enter ...">
                 </div>
               </div>
-              <div class="col-sm-12">
-                <!-- text input -->
-                <div class="form-group">
-                  <label>الاسم الانجليزي</label>
-                  <input type="text" class="form-control" value="{{ $category->name_en }}" name="name_en" placeholder="Enter ...">
-                </div>
-              </div>
+
 
             </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <!-- textarea -->
-                <div class="form-group">
-                  <label>الوصف العربي</label>
-                  <textarea class="form-control"  name="des_ar" rows="3" placeholder="Enter ...">{{ $category->des_ar }}</textarea>
-                </div>
-              </div>
 
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                  <!-- textarea -->
-                  <div class="form-group">
-                    <label>الوصف الانجليزي</label>
-                    <textarea class="form-control" name="des_en" rows="3" placeholder="Enter ...">{{ $category->des_en }}</textarea>
-                  </div>
-                </div>
 
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <!-- textarea -->
-                  <div class="form-group">
-                    <label>الصورة</label>
-                    <input type="file" id="img" class="form-control" name="img" placeholder="Enter ...">
-                  </div>
-                </div>
 
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <!-- textarea -->
-                  <div class="form-group">
-                    <img class="" width="100px" height="100px" id="showimage" src="{{  (!empty($category->img)) ? url($category->img) : url('upload/no_image.jpg')  }}" alt="">
 
-                  </div>
-                </div>
-
-              </div>
 
               <div class="row">
                 <div class="col-sm-12">
                   <!-- textarea -->
                   <div class="form-group">
 
-                    <input id="showimage" type="submit" class="btn btn-info" name="" value="تعديل القسم" placeholder="Enter ...">
+                    <input id="showimage" type="submit" class="btn btn-info" name="" value="edit " placeholder="Enter ...">
                   </div>
                 </div>
 

@@ -6,7 +6,7 @@ use App\Models\categoryy;
 
 use Illuminate\Http\Request;
 
-class CategoryyController extends Controller
+class CategoryController extends Controller
 {
     public function index(){
         $categories=categoryy::all();
