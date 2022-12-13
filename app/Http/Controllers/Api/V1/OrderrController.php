@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Itemm;
 use App\Models\Orderr;
 use App\Models\Cartt; 
+use App\Models\productt; 
 
 use Illuminate\Http\Request;
 
