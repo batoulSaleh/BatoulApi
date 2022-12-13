@@ -49,8 +49,6 @@ class OrderrController extends Controller
         ]);
 
 
-        $items = Itemm::where('user_id',$user_id)->get();
-
         foreach($items as $item){
             $item->update([
                 'order_id' => $order->id,
