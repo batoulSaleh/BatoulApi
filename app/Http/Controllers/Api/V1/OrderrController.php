@@ -22,7 +22,7 @@ class OrderrController extends Controller
 
         $user_id = $request->user()->id;
         $cart=Cartt::where('user_id',$user_id)->first();
-        $items = Itemm::where('cartt_id',$cart->id)->where('order_id',null)->get();
+        $items = Itemm::where('cartt_id',$cart->id)->where('orderr_id',null)->get();
         
 
         if(count($items) > 0){
