@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Categoryy;
+use App\Models\categoryy;
 use App\Models\Cleaning;
 use App\Models\Order;
 use App\Models\Productt;
@@ -19,7 +19,7 @@ class HomeController extends Controller
         $delivered = Order::where('status','delivered')->get();
         $users = User::all();
         $products = Productt::all();
-        $categories = Categoryy::all();
+        $categories = categoryy::all();
         $cleanings = Cleaning::all();
 
         return view('admin.index',compact('new','delivered','users','products','categories','cleanings'));

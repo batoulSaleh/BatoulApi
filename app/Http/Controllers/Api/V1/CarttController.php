@@ -29,7 +29,7 @@ class CarttController extends Controller
                 'quantity' => $old->quantity + $request->quantity,
             ]);
             $response = [
-                'message' =>  trans('api.cartadded'),
+                'message' =>  'cart added',
                 'data' => $old,
             ];
 
@@ -48,7 +48,7 @@ class CarttController extends Controller
             ]);
 
             $response = [
-            'message' =>  trans('api.cartadded'),
+            'message' =>  'cart added',
             'data' => $item,
             ];
 
@@ -96,7 +96,7 @@ class CarttController extends Controller
 
     }
         $response = [
-            'message' =>  trans('api.fetch'),
+            'message' =>  'your items',
             'cart count' => count($items),
             'items  ' => $items,
             'total_price' => $total 
@@ -106,7 +106,7 @@ class CarttController extends Controller
     }else
     {
         $response = [
-            'message' => "ypu don't have any items",
+            'message' => "you don't have any items",
         ];
         return response($response,201);
     }
@@ -135,7 +135,7 @@ class CarttController extends Controller
         ]);
 
         $response = [
-            'message' =>  trans('api.stored'),
+            'message' =>  'the cart updated',
             'data' => $item,
 
 
@@ -152,13 +152,13 @@ class CarttController extends Controller
         if($item){
             $item->delete();
             $response = [
-               'message' => trans('api.deleted'),
+               'message' => 'the cart deleted',
 
             ];
             $stat = 201;
         }else{
             $response = [
-                'message' => trans('api.notfound'),
+                'message' => 'not found',
 
 
             ];
@@ -175,7 +175,7 @@ class CarttController extends Controller
 
         $items = Itemm::where('cartt_id',$cart->id)->get();
         $response = [
-            'message' => trans('api.fetch'),
+            'message' => 'count of cart',
             'cart_count' => count($items),
         ];
         $stat = 201;
