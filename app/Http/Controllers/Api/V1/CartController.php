@@ -97,7 +97,7 @@ class CartController extends Controller
         
         $total_price = 0;
 
-        $product=Productt::find($item->product_id);
+        $product=Productt::find($item->productt_id);
 
         $total_price += $product->price * $item->quantity;
         $total += $total_price;
