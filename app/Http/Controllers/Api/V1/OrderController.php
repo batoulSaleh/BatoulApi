@@ -32,7 +32,7 @@ class OrderController extends Controller
         
         $total_price = 0;
 
-        $product=Productt::find($item->product_id);
+        $product=Productt::find($item->productt_id);
         
         $new_quantity=$product->stock-$item->quantity;
 

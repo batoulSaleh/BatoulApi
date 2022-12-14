@@ -123,7 +123,7 @@ class CartController extends Controller
     public function userupdate(Request $request,$id)
     {
         $request->validate([
-            'product_id' => 'required|exists:products,id',
+            'product_id' => 'required|exists:productts,id',
             'quantity' => 'required|numeric|max:200',
 
         ]);
