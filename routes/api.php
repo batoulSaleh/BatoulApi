@@ -29,7 +29,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     
 
 
-Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
+Route::group(['prefix' => 'v1'], function () {
 
 // Categories start
     Route::get('/categories/index',[CategoryController::class,'index']);
@@ -70,13 +70,5 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
 
 //routes payment
 Route::get('/payment',[PaymentController::class,'index']);
-
-
-
-
-
-
-
-
 
 });

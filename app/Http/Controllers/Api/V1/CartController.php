@@ -30,7 +30,7 @@ class CartController extends Controller
 
         if($oldCart){
 
-            $old = Itemm::where('product_id',$request->product_id)->where('cartt_id',$oldCart->id)->first();
+            $old = Itemm::where('productt_id',$request->product_id)->where('cartt_id',$oldCart->id)->first();
 
             if($old){
             $old->update([
