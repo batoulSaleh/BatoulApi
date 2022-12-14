@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\V1\CartController;
 use App\Http\Controllers\Api\V1\CategoryController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\OrderController;
+use App\Http\Controllers\Api\V1\PaymentController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\V1\password\ForgotPasswordController;
 use App\Http\Controllers\Api\V1\ProductController;
