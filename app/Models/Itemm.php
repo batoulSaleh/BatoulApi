@@ -10,14 +10,14 @@ class Itemm extends Model
     use HasFactory;
 
     protected $fillable = [
-        'product_id',
-        'orderr_id',
+        'productt_id',
+        'orderr_id', 
         'cartt_id',
         'quantity'
     ];
 
-    public function product(){
-        return $this->hasOne(Productt::class);
+    public function productt(){
+        return $this->belongsTo(Productt::class);
     }
 
 }

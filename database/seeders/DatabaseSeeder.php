@@ -6,11 +6,11 @@ namespace Database\Seeders;
 
 use App\Models\Admin;
 use App\Models\Category;
-use App\Models\Cleaning;
+
 use App\Models\Home;
 use App\Models\Payment;
 use App\Models\Product;
-use App\Models\Rule;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;

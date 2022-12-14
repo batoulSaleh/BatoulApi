@@ -88,9 +88,9 @@ class CartController extends Controller
         # code...
 
         $cart=Cartt::where('user_id',$request->user()->id)->first();
-
+ 
         if($cart){
-        $items = Itemm::with('product')->where('cartt_id',$cart->id)->get();
+        $items = Itemm::with('productt')->where('cartt_id',$cart->id)->get();
 
         $total = 0;
     foreach($items as $item){

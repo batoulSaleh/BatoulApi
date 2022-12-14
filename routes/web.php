@@ -37,17 +37,6 @@ Route::prefix('/dashboard')->name('admin.')->group(function (){
     Route::middleware('admin')->group(function () {
 
         Route::get('/logout',[AdController::class,'destroy'])->name('logout');
-        Route::get('/profile',[AdController::class,'profile'])->name('profile');
-        Route::get('/edit-profile',[AdController::class,'edit_profile'])->name('profile.edit');
-        Route::post('/update-profile',[AdController::class,'update_profile'])->name('profile.update');
-        Route::get('/change-password',[AdController::class,'change_password'])->name('password.change');
-        Route::post('/update-password',[AdController::class,'update_password'])->name('password.update');
-        Route::get('delete/{id}',[AdController::class,'delete'])->name('delete');
-        Route::get('/adduser',[AdController::class,'adduser'])->name('adduser');
-        Route::post('/storeuser',[AdController::class,'storeuser'])->name('storeuser');
-        Route::get('/edituser/{id}',[AdController::class,'edituser'])->name('edituser');
-        Route::post('updateuser',[AdController::class,'updateuser'])->name('updateuser');
-
 
          //category routes
 
