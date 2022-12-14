@@ -49,7 +49,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('/cart/user/store',[CartController::class,'userstore'])->middleware('auth:sanctum');
     Route::get('/cart/user/index',[CartController::class,'userindex'])->middleware('auth:sanctum');
     Route::post('/cart/user/update/{id}',[CartController::class,'userupdate'])->middleware('auth:sanctum');
-    Route::post('/cart/user/delete/{id}',[CartController::class,'userdelete'])->middleware('auth:sanctum');
+    Route::post('/cart/user/delete/{id}',[CartController::class,'userdelete']);
     Route::get('/cart/user/count',[CartController::class,'usercount'])->middleware('auth:sanctum');
 
 
