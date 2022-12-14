@@ -136,7 +136,7 @@ class CartController extends Controller
         $product = Productt::findOrFail($request->product_id);
 
         $item->update([
-            'product_id' => $request->product_id,
+            'productt_id' => $request->product_id,
             'orderr_id' => null,
             'cartt_id' => $cart->id,
             'quantity' => $request->quantity,
