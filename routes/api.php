@@ -44,7 +44,7 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
 
        //cart start
 
-    //   user start
+    //   cart start
     Route::post('/cart/user/store',[CartController::class,'userstore'])->middleware('auth:sanctum');
     Route::get('/cart/user/index',[CartController::class,'userindex'])->middleware('auth:sanctum');
     Route::post('/cart/user/update/{id}',[CartController::class,'userupdate'])->middleware('auth:sanctum');
@@ -55,32 +55,20 @@ Route::group(['prefix' => 'v1' ,'middleware' => 'lang'], function () {
     Route::post('/order/user/store',[OrderController::class,'userstore'])->middleware('auth:sanctum');
 
 
-    //   user end
+    //   cart end
 
-    //guest routes
+    //user routes
 
 
     Route::post('/register',[UserController::class,'Register']);
-    Route::post('/verify',[UserController::class,'verify'])->middleware('auth:sanctum');
 
 
     Route::post('/logout',[UserController::class,'logout'])->middleware('auth:sanctum');
     Route::post('/login',[UserController::class,'login']);
-    Route::get('/user/profile',[UserController::class,'profile'])->middleware('auth:sanctum');
-    Route::post('/user/updateprofile',[UserController::class,'updateprofile'])->middleware('auth:sanctum');
-    //password reset
+    
 
-    Route::post('/apforget-password', [UserController::class, 'ForgetPasswordEmail']);
-    Route::post('/resetverify',[UserController::class,'resetverify']);
-    Route::post('/reset-password', [UserController::class, 'ResetPassword'])->middleware('auth:sanctum');
-
-    // Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm']);
-
-    Route::post('/Regenerate',[UserController::class,'Regenerate'])->middleware('auth:sanctum');
-    Route::get('/rules',[UserController::class,'rules']);
-    Route::put('updaterules',[UserController::class , 'updaterules']);
-
-
+//routes payment
+Route::get('/payment',[PaymentController::class,'index']);
 
 
 

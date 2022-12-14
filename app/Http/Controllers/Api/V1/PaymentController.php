@@ -10,13 +10,10 @@ class PaymentController extends Controller
     //
 
     public function index(){
-        $payments = Payment::select([
-            'id',
-            'name_' .app()->getLocale(). ' as name',
-        ])->get();
+        $payments = Payment::all();
 
         $response = [
-            'message' =>  trans('api.fetch'),
+            'message' =>  'types of payments',
             'data' => $payments,
 
 

@@ -45,13 +45,11 @@ class DatabaseSeeder extends Seeder
 
 
     Payment::create([
-        'name_en' => 'credit cart',
-        'name_ar' => 'كريدت كارد',
+        'name' => 'credit cart',
     ]);
 
     Payment::create([
-        'name_en' => 'cash on delivery',
-        'name_ar' => ' الدفع عند الاستلام',
+        'name' => 'cash on delivery',
     ]);
 
 
