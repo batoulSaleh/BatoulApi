@@ -49,7 +49,7 @@ class CartController extends Controller
 
 
             $item = Itemm::create([
-            'product_id' => $request->product_id,
+            'productt_id' => $request->product_id,
             'orderr_id' => null,
             'cartt_id' => $oldCart->id,
             'quantity' => $request->quantity,
@@ -68,7 +68,7 @@ class CartController extends Controller
             ]);
 
             $item = Itemm::create([
-                'product_id' => $request->product_id,
+                'productt_id' => $request->product_id,
                 'orderr_id' => null,
                 'cartt_id' => $cart->id,
                 'quantity' => $request->quantity,
