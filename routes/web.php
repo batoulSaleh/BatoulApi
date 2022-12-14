@@ -2,13 +2,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\AdController;
 use App\Http\Controllers\dashboard\CategoryController;
-use App\Http\Controllers\dashboard\CleaningController;
 use App\Http\Controllers\dashboard\ProductController;
 use App\Http\Controllers\dashboard\HomeController;
 use App\Http\Controllers\dashboard\UserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\dashboard\OrderController;
-use App\Http\Controllers\dashboard\RuleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,11 +62,11 @@ Route::prefix('/dashboard')->name('admin.')->group(function (){
 
 
          //product routes
-         Route::post('/product/update',[ProductController::class,'update'])->name('product.update');
          Route::get('/product/index',[ProductController::class,'index'])->name('product.index');
          Route::get('/product/create',[ProductController::class,'create'])->name('product.create');
          Route::post('/product/store',[ProductController::class,'store'])->name('product.store');
          Route::get('/product/edit/{id}',[ProductController::class,'edit'])->name('product.edit');
+         Route::post('/product/update',[ProductController::class,'update'])->name('product.update');
          Route::get('/product/delete/{id}',[ProductController::class,'delete'])->name('product.delete');
  
          //end product routes

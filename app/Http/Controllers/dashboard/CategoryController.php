@@ -22,6 +22,7 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required|max:150'
         ]);
+        
         $cat = categoryy::create([
             'name' => $request->name
         ]);

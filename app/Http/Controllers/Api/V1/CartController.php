@@ -14,7 +14,7 @@ class CartController extends Controller
     {
         # code...
         $request->validate([
-            'product_id' => 'required|exists:products,id',
+            'product_id' => 'required|exists:productts,id',
             'quantity' => 'required|numeric|max:200',
         ]);
 
@@ -25,6 +25,7 @@ class CartController extends Controller
             ];
             return response($response,201);
         }
+
         $oldCart=Cartt::where('user_id',$request->user()->id)->first();
 
         if($oldCart){
@@ -74,7 +75,7 @@ class CartController extends Controller
             ]);
 
             $response = [
-                'message' =>  trans('api.cartadded'),
+                'message' =>  'cart added',
                 'data' => $item,
             ];
             return response($response,201);
@@ -89,7 +90,7 @@ class CartController extends Controller
         $cart=Cartt::where('user_id',$request->user()->id)->first();
 
         if($cart){
-        $items = Itemm::where('cartt_id',$cart->id)->get();
+        $items = Itemm::with('product')->where('cartt_id',$cart->id)->get();
 
         $total = 0;
     foreach($items as $item){

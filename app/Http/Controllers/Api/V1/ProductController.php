@@ -53,7 +53,7 @@ class ProductController extends Controller
             return response($response);
         }else{
             $response = [
-                'message' => 'not found products of category',
+                'message' => 'not found category',
                 'code'=>404
             ];
             return response($response,404);

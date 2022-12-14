@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\V1\UserRequest;
-use App\Models\Rule;
 use App\Models\User;
 use App\Models\Verfication;
 use Carbon\Carbon;
@@ -64,7 +62,7 @@ class UserController extends Controller
         $user = User::where('email',$fields['user'])
         ->orWhere('phone',$fields['user'])
         ->first();
-        //check email
+
 
 
         //check password

@@ -77,7 +77,7 @@ products
                 <div class="col-sm-6">
                     <!-- select -->
                     <div class="form-group">
-                    <label>اختار القسم</label>
+                    <label> category</label>
                     <select name="categoryy_id" class="form-control">
                         @foreach ($categories as $category)
 

@@ -12,7 +12,7 @@ Categories
           <h3 class="card-title" style="float: right;">All Categories </h3><br/>
           <a href="{{ route('admin.category.create') }}" style="float: left" class="btn btn-info"> add category</a>
         </div>
-        <!-- /.card-header -->
+        <!-- /.card-header --> 
         <div class="card-body">
           <table id="example2" class="table table-bordered table-striped">
             <thead>
